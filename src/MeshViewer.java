@@ -183,6 +183,7 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 		}	
 		
 		if(e.getButton()==MouseEvent.BUTTON3){
+			zoom =e.getY();
 			System.out.println("pressed right");
 		}
 	}

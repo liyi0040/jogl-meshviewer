@@ -27,7 +27,7 @@ public class RenderShap implements GLEventListener, ActionListener{
  	static double translationX=0;
  	static double translationY=0;
  	static double translationZ=0;
-// 	static double zoomI;
+ 	static double zoomI=0;
 // 	static double zoomO;
 
 
@@ -68,17 +68,13 @@ public class RenderShap implements GLEventListener, ActionListener{
 		gl.glClear(gl.GL_COLOR_BUFFER_BIT|gl.GL_ACCUM_BUFFER_BIT);
 
 
-
-//		      gl.glPushMatrix();
-//			  gl.glLoadIdentity();
 		rotationX+=window.rotateChangeX;
 		rotationY+=window.rotateChangeY;
 		translationX+=window.translateChangeX;
 		translationY+=window.translateChangeY;
-//		translationZ+=window.translateChangeZ;
 
-
-			  System.out.println(translationX+","+translationY);
+//		
+		
 
 			// grid
 				 gl.glPushMatrix();
@@ -167,23 +163,16 @@ public class RenderShap implements GLEventListener, ActionListener{
 			  gl.glBegin(GL2.GL_TRIANGLES);
 			  gl.glColor4f(1, 1, 1, 0.5f);;
 		      for(int b=1;b<=rf.face_num;b++){
-//		    	  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_AMBIENT, mat_ambient, 0);
-//				  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_DIFFUSE, mat_diffuse, 0);
-//				  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SPECULAR, mat_specular, 0);
-//				  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SHININESS, high_shininess, 0);
-//				  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_EMISSION, no_mat, 0);
 		  	    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_AMBIENT, mat_ambient, 0);
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_DIFFUSE, mat_diffuse, 0);
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SPECULAR, mat_specular, 0);
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SHININESS, high_shininess, 0);
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_EMISSION, no_mat, 0);
-//				 System.out.println("normal"+rf.vertexNormal[rf.face[b][0]][0]/(0.1*rf.diagnal)+","+ rf.vertexNormal[rf.face[b][0]][1]/(0.1*rf.diagnal)+","+rf.vertexNormal[rf.face[b][0]][2]/(0.1*rf.diagnal));
-//				 System.out.println("vert"+rf.vertex[rf.face[b][0]][0]/(0.1*rf.diagnal)+","+rf.vertex[rf.face[b][0]][1]/(0.1*rf.diagnal)+","+rf.vertex[rf.face[b][0]][2]/(0.1*rf.diagnal));
-		      gl.glNormal3d(rf.vertexNormal[rf.face[b][0]][0]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][0]][1]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][0]][2]/(0.1*rf.diagnal));   
+		      gl.glNormal3d(-rf.vertexNormal[rf.face[b][0]][0]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][0]][1]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][0]][2]/(0.1*rf.diagnal));   
 		      gl.glVertex3d(rf.vertex[rf.face[b][0]][0]/(0.1*rf.diagnal), rf.vertex[rf.face[b][0]][1]/(0.1*rf.diagnal), rf.vertex[rf.face[b][0]][2]/(0.1*rf.diagnal));
-		      gl.glNormal3d(rf.vertexNormal[rf.face[b][1]][0]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][1]][1]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][1]][2]/(0.1*rf.diagnal));   
+		      gl.glNormal3d(-rf.vertexNormal[rf.face[b][1]][0]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][1]][1]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][1]][2]/(0.1*rf.diagnal));   
 		      gl.glVertex3d(rf.vertex[rf.face[b][1]][0]/(0.1*rf.diagnal), rf.vertex[rf.face[b][1]][1]/(0.1*rf.diagnal), rf.vertex[rf.face[b][1]][2]/(0.1*rf.diagnal));
-		      gl.glNormal3d(rf.vertexNormal[rf.face[b][2]][0]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][2]][1]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][2]][2]/(0.1*rf.diagnal));   
+		      gl.glNormal3d(-rf.vertexNormal[rf.face[b][2]][0]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][2]][1]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][2]][2]/(0.1*rf.diagnal));   
 		      gl.glVertex3d(rf.vertex[rf.face[b][2]][0]/(0.1*rf.diagnal), rf.vertex[rf.face[b][2]][1]/(0.1*rf.diagnal), rf.vertex[rf.face[b][2]][2]/(0.1*rf.diagnal));
 		      
 		      }
@@ -265,9 +254,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 			  gl.glRotated(-rotationX/30, 0, 1, 0);
 			  gl.glRotated(-rotationY/30, 1, 0, 0);
 			  gl.glTranslated(-translationX/1000,translationY/1000, 0);
-
-//			  gl.glTranslatef(-0.3f, -0.3f, 0f);
-//			  gl.glScalef(50f,50f,50f);
+			  
 			  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_AMBIENT, no_mat, 0);
 			  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_DIFFUSE, mat_diffuse, 0);
 			  gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SPECULAR, no_mat, 0);
@@ -312,10 +299,13 @@ public class RenderShap implements GLEventListener, ActionListener{
 		     
 		     
 		     
-			 
-			 
+				
 
 			 gl.glFlush();
+			 
+			    
+
+
 
 //projection
 			 if(window.Smooth.isSelected()){
@@ -323,8 +313,21 @@ public class RenderShap implements GLEventListener, ActionListener{
 				}
 			 if (window.Flat.isSelected()) {
 				gl.glShadeModel(GL2.GL_FLAT);
-
 				}
+//look at
+				System.out.println(window.zoomChange+"------");
+				 gl.glMatrixMode(GL2.GL_PROJECTION);
+				 gl.glLoadIdentity();
+					glu.gluPerspective(50.0f,1,1.0,50.0);
+					if (window.zoomChange>500) {
+						zoomI=15;
+
+					}else {
+						zoomI=window.zoomChange;
+					}
+					glu.gluLookAt(15+zoomI/(100/3),15+zoomI/(100/3),15+zoomI/(100/3), 0, 0, 0, 0, 1, 0);	 
+				 gl.glMatrixMode(GL2.GL_MODELVIEW);
+				 gl.glLoadIdentity();
 
 //		
 	}
@@ -352,12 +355,10 @@ public class RenderShap implements GLEventListener, ActionListener{
 			    { 0.4f, 0.4f, 0.4f, 1.0f };
 		  float local_view[] = { 0.0f };
 	    
-//////		gl.glShadeModel(GL2.GL_SMOOTH);
-//		gl.glShadeModel(GL2.GL_FLAT);
+
 //	    gl.glEnable(GL.GL_DEPTH_TEST);//????????
 		gl.glDepthFunc(GL2.GL_LEQUAL);
 
-//		gl.glHint(GL2.GL_ PECTIVE_CORRECTION_HINT,GL2.GL_NICEST);
 
 	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambient, 0);
 	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse, 0);
@@ -381,8 +382,9 @@ public class RenderShap implements GLEventListener, ActionListener{
 	    gl.glViewport(0, 0, w, h);
 	    gl.glMatrixMode(GL2.GL_PROJECTION);
 	    gl.glLoadIdentity();
-//
+
 		glu.gluPerspective(50.0f,1,1.0,50.0);
+//	    gl.glFrustum(-10,10,-10,10,1,10);
 //
 //	    double range = 10;
 //	    if (w <= (h * 2)) //
@@ -390,11 +392,12 @@ public class RenderShap implements GLEventListener, ActionListener{
 //	    		range/2 * ((float) h * 2) / (float) w, -range, range);
 //	    else gl.glOrtho(-10.0 * (float) w / ((float) h * 2), //
 //	    		range * (float) w / ((float) h * 2), -range/2, range/2, -range, range);
-//		System.out.println(window.rotateChangeX+"------");
-		glu.gluLookAt(10,15,15, 0, 0, 0, 0, 1, 0);
-//
+
+		glu.gluLookAt(15,15,15, 0, 0, 0, 0, 1, 0);
+
 	    gl.glMatrixMode(GL2.GL_MODELVIEW);
 	    gl.glLoadIdentity();
+
 	}
 	
 	public static void main(String[] args) {

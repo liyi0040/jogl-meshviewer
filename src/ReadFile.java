@@ -34,7 +34,7 @@ public class ReadFile {
 	    //read file
 	    //parse
 	    //store to array
-	     String fileName = "E://ÔÚNTU//eclipse//MeshViewer//meshes//knot.m";  
+	     String fileName = "E://ÔÚNTU//eclipse//MeshViewer//meshes//bunny.m";  
 	     try {
 	            // read file content from file
 	            StringBuffer sb= new StringBuffer("");

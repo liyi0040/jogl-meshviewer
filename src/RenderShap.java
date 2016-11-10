@@ -168,11 +168,11 @@ public class RenderShap implements GLEventListener, ActionListener{
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SPECULAR, mat_specular, 0);
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SHININESS, high_shininess, 0);
 			    gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_EMISSION, no_mat, 0);
-		      gl.glNormal3d(-rf.vertexNormal[rf.face[b][0]][0]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][0]][1]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][0]][2]/(0.1*rf.diagnal));   
+		      gl.glNormal3d(rf.vertexNormal[rf.face[b][0]][0]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][0]][1]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][0]][2]/(0.1*rf.diagnal));   
 		      gl.glVertex3d(rf.vertex[rf.face[b][0]][0]/(0.1*rf.diagnal), rf.vertex[rf.face[b][0]][1]/(0.1*rf.diagnal), rf.vertex[rf.face[b][0]][2]/(0.1*rf.diagnal));
-		      gl.glNormal3d(-rf.vertexNormal[rf.face[b][1]][0]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][1]][1]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][1]][2]/(0.1*rf.diagnal));   
+		      gl.glNormal3d(rf.vertexNormal[rf.face[b][1]][0]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][1]][1]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][1]][2]/(0.1*rf.diagnal));   
 		      gl.glVertex3d(rf.vertex[rf.face[b][1]][0]/(0.1*rf.diagnal), rf.vertex[rf.face[b][1]][1]/(0.1*rf.diagnal), rf.vertex[rf.face[b][1]][2]/(0.1*rf.diagnal));
-		      gl.glNormal3d(-rf.vertexNormal[rf.face[b][2]][0]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][2]][1]/(0.1*rf.diagnal), -rf.vertexNormal[rf.face[b][2]][2]/(0.1*rf.diagnal));   
+		      gl.glNormal3d(rf.vertexNormal[rf.face[b][2]][0]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][2]][1]/(0.1*rf.diagnal), rf.vertexNormal[rf.face[b][2]][2]/(0.1*rf.diagnal));   
 		      gl.glVertex3d(rf.vertex[rf.face[b][2]][0]/(0.1*rf.diagnal), rf.vertex[rf.face[b][2]][1]/(0.1*rf.diagnal), rf.vertex[rf.face[b][2]][2]/(0.1*rf.diagnal));
 		      
 		      }
@@ -355,10 +355,12 @@ public class RenderShap implements GLEventListener, ActionListener{
 			    { 0.4f, 0.4f, 0.4f, 1.0f };
 		  float local_view[] = { 0.0f };
 	    
-
+//////		gl.glShadeModel(GL2.GL_SMOOTH);
+//		gl.glShadeModel(GL2.GL_FLAT);
 //	    gl.glEnable(GL.GL_DEPTH_TEST);//????????
 		gl.glDepthFunc(GL2.GL_LEQUAL);
 
+//		gl.glHint(GL2.GL_ PECTIVE_CORRECTION_HINT,GL2.GL_NICEST);
 
 	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambient, 0);
 	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse, 0);

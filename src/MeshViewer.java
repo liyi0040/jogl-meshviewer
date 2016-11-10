@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
+import javax.swing.JLabel;
 
 public class MeshViewer implements MouseMotionListener,MouseListener{
 
@@ -60,8 +61,23 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 	JCheckBox Wireframe ;
 	 JRadioButton Flat;
 	 JRadioButton Smooth; 
-	 JButton Open;
 	   JCheckBox Box;
+
+	  JLabel lblProcess;
+
+	  JLabel lblNewLabel;
+
+	  JLabel lblNewLabel_1;
+
+	  JLabel lblFaceverticesNormalDone;
+
+	  JLabel lblNewLabel_2;
+
+	  JLabel lblHowToOperation;
+
+	  JLabel lblChooseTheM;
+
+	  JButton Open;
 	 
 	/**
 	 * Initialize the contents of the frame.
@@ -76,33 +92,73 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 	    frmLiying.getContentPane().setLayout(null);
 	    
 	      Point = new JCheckBox("Point Cloud");
-	    Point.setBounds(335, 18, 97, 23);
+	    Point.setBounds(241, 18, 97, 23);
 	    frmLiying.getContentPane().add(Point);
 	    
 	      Wireframe = new JCheckBox("Wireframe");
-	    Wireframe.setBounds(447, 18, 97, 23);
+	    Wireframe.setBounds(353, 18, 97, 23);
 	    frmLiying.getContentPane().add(Wireframe);
 	    
 	      Flat = new JRadioButton("Flat Mode");
-	    Flat.setBounds(224, 18, 109, 23);
+	    Flat.setBounds(130, 18, 109, 23);
 	    frmLiying.getContentPane().add(Flat);
 	    
 	      Smooth = new JRadioButton("Smooth Mode");
-	    Smooth.setBounds(113, 18, 109, 23);
+	    Smooth.setBounds(19, 18, 109, 23);
 	    frmLiying.getContentPane().add(Smooth);
 	    ButtonGroup shading = new ButtonGroup();
 	    shading.add(Smooth);
 	    shading.add(Flat);
 	    
-	      Open = new JButton("Open");
-	    Open.setBounds(18, 18, 89, 23);
-	    frmLiying.getContentPane().add(Open);
-	    
 	    Box = new JCheckBox("Bounding Box");
-	    Box.setBounds(546, 18, 117, 23);
+	    Box.setBounds(452, 18, 117, 23);
 	    frmLiying.getContentPane().add(Box);
 	    
-		frmLiying.setSize(666,700);
+	      lblProcess = new JLabel("------Process\r\n------");
+	    lblProcess.setBounds(696, 49, 109, 14);
+	    frmLiying.getContentPane().add(lblProcess);
+	    
+	      lblNewLabel = new JLabel("M-File Parser Done");
+	    lblNewLabel.setBounds(696, 101, 137, 14);
+	    lblNewLabel.setVisible(false);
+	    frmLiying.getContentPane().add(lblNewLabel);
+	    
+	      lblNewLabel_1 = new JLabel("Half-edge Data Structure Done");
+	    lblNewLabel_1.setBounds(696, 126, 149, 14);
+	    lblNewLabel_1.setVisible(false);
+
+	    frmLiying.getContentPane().add(lblNewLabel_1);
+	    
+	     lblFaceverticesNormalDone = new JLabel("Face&Vertices Normal Done");
+	    lblFaceverticesNormalDone.setBounds(696, 151, 149, 14);
+	    lblFaceverticesNormalDone.setVisible(false);
+
+	    frmLiying.getContentPane().add(lblFaceverticesNormalDone);
+	    
+	     lblNewLabel_2 = new JLabel("Enjoy the Model!");
+	    lblNewLabel_2.setBounds(696, 176, 85, 14);
+	    lblNewLabel_2.setVisible(false);
+	    frmLiying.getContentPane().add(lblNewLabel_2);
+	    
+	     lblHowToOperation = new JLabel("How to OPERATION");
+	    lblHowToOperation.setBounds(696, 218, 109, 14);
+	    lblHowToOperation.setVisible(false);
+
+	    frmLiying.getContentPane().add(lblHowToOperation);
+	    
+	     lblChooseTheM = new JLabel("<html>\r\nLEFT mouse button for Rotation <br/>\r\nMIDDLE mouse button for Translation<br/>\r\nRIGHT mouse button for Zoom in/out<br/>\r\n     <br/>\r\nPlease click \"Open\" to see more details<br/>\r\n</html>");
+	    lblChooseTheM.setBounds(671, 252, 190, 105);
+	    lblChooseTheM.setVisible(false);
+
+	    frmLiying.getContentPane().add(lblChooseTheM);
+	    
+	    Open = new JButton("Open");
+	    Open.setBounds(704, 397, 89, 23);
+	    Open.setVisible(false);
+
+	    frmLiying.getContentPane().add(Open);
+	    
+		frmLiying.setSize(888,700);
 		frmLiying.setVisible(true);
 	}
 
@@ -128,7 +184,7 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 
 			translateChangeX  = translateX-translateX_c;
 			translateChangeY  = translateY-translateY_c;
-			System.out.println(e.getModifiers()+"translateChangeX="+translateChangeX+","+translateChangeY);
+//			System.out.println(e.getModifiers()+"translateChangeX="+translateChangeX+","+translateChangeY);
 
 			frmLiying.repaint();
 		}

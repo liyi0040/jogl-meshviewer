@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,7 +11,7 @@ import java.util.Spliterator;
 import com.jmatio.*;
 import com.jmatio.io.MatFileReader;
 
-public class ReadFile {
+public class ReadFile  {
 
 //	private static Object[] vertex_array;
 	public static int vertex_num=0	;
@@ -30,11 +32,12 @@ public class ReadFile {
 	static double vertexMax_z ;
 	static double vertexMin_z ;
 	static double diagnal;
-	public static void file_parser(){
+//	public static String fileName;
+	public static void file_parser(String fileName){
 	    //read file
 	    //parse
 	    //store to array
-	     String fileName = "E://ÔÚNTU//eclipse//MeshViewer//meshes//cap.m";  
+//	      fileName = "E://ÔÚNTU//eclipse//MeshViewer//meshes//cap.m";  
 	     try {
 	            // read file content from file
 	            StringBuffer sb= new StringBuffer("");
@@ -288,4 +291,9 @@ public class ReadFile {
 		
 
 	}
+
+
+
+
+
 }

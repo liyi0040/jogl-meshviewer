@@ -2,6 +2,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.jogamp.newt.event.MouseListener;
 import com.jogamp.opengl.GL;
@@ -28,6 +35,7 @@ public class RenderShap implements GLEventListener, ActionListener{
  	static double translationY=0;
  	static double translationZ=0;
  	static double zoomI=0;
+	private static String fileName;
 // 	static double zoomO;
 
 
@@ -36,7 +44,10 @@ public class RenderShap implements GLEventListener, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+//		
+		if (e.getActionCommand()=="Open") {
+			
+		}
 	}
 
 	@Override
@@ -107,7 +118,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 			     gl.glColor3f(1, 0, 0);
 				  GLUquadric Yaxis = glu.gluNewQuadric();
 				  glu.gluCylinder(Yaxis, 0.035, 0.035, 10, 10, 1);
-				  System.out.println("===red===");
+//				  System.out.println("===red===");
 			 gl.glPopMatrix();
 			 // system
 		     gl.glPushMatrix();//green x axis
@@ -116,7 +127,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 			     gl.glColor3f(0, 1, 0);
 				  GLUquadric Xaxis = glu.gluNewQuadric();
 				  glu.gluCylinder(Xaxis, 0.035, 0.035, 10, 10, 1);
-				  System.out.println("==green=====");
+//				  System.out.println("==green=====");
 			 gl.glPopMatrix();
 			 
 		     gl.glPushMatrix();//blue z axis
@@ -125,7 +136,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 			     gl.glColor3f(0, 0, 1);
 				  GLUquadric Zaxis = glu.gluNewQuadric();
 				  glu.gluCylinder(Zaxis, 0.035, 0.035, 10, 10, 1);
-				  System.out.println("===blue====");
+//				  System.out.println("===blue====");
 			 gl.glPopMatrix();
 			 
 			 gl.glPushMatrix();//y arrow
@@ -134,7 +145,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 			     gl.glRotatef(-90, 1, 0, 0);
 			     gl.glColor3f(1, 0, 0);
 			      glut.glutSolidCone(0.1, 0.3, 10, 1);
-				  System.out.println("============");
+//				  System.out.println("============");
 		     gl.glPopMatrix();
 	     
 			 gl.glPushMatrix();//x arrow
@@ -143,7 +154,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 			     gl.glRotatef(90, 0, 1, 0);
 			     gl.glColor3f(0, 1, 0);
 			      glut.glutSolidCone(0.1, 0.3, 10, 1);
-				  System.out.println("============");
+//				  System.out.println("============");
 	         gl.glPopMatrix();
 	         
 			 gl.glPushMatrix();//z arrow
@@ -152,7 +163,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 				 gl.glTranslatef(0, 0f, 10f);
 			     gl.glColor3f(0, 0, 1);
 			      glut.glutSolidCone(0.1, 0.3, 10, 1);
-				  System.out.println("============");
+//				  System.out.println("============");
 			 gl.glPopMatrix();
 			  //draw face
 			  gl.glPushMatrix();
@@ -197,10 +208,10 @@ public class RenderShap implements GLEventListener, ActionListener{
 		      gl.glVertex3d(rf.vertexMax_x/(0.1*rf.diagnal), rf.vertexMax_y/(0.1*rf.diagnal), rf.vertexMin_z/(0.1*rf.diagnal));
 		      gl.glVertex3d(rf.vertexMin_x/(0.1*rf.diagnal), rf.vertexMax_y/(0.1*rf.diagnal), rf.vertexMin_z/(0.1*rf.diagnal));
 		      gl.glVertex3d(rf.vertexMin_x/(0.1*rf.diagnal), rf.vertexMax_y/(0.1*rf.diagnal), rf.vertexMax_z/(0.1*rf.diagnal));   
-		      System.out.println("("+rf.vertexMax_x+","+ rf.vertexMax_y+","+ rf.vertexMax_z+")");
-		      System.out.println("("+rf.vertexMax_x+","+ rf.vertexMax_y+","+ rf.vertexMin_z+")");
-		      System.out.println("("+rf.vertexMin_x+","+ rf.vertexMax_y+","+ rf.vertexMin_z+")");
-		      System.out.println("("+rf.vertexMin_x+","+ rf.vertexMax_y+","+ rf.vertexMax_z+")");
+//		      System.out.println("("+rf.vertexMax_x+","+ rf.vertexMax_y+","+ rf.vertexMax_z+")");
+//		      System.out.println("("+rf.vertexMax_x+","+ rf.vertexMax_y+","+ rf.vertexMin_z+")");
+//		      System.out.println("("+rf.vertexMin_x+","+ rf.vertexMax_y+","+ rf.vertexMin_z+")");
+//		      System.out.println("("+rf.vertexMin_x+","+ rf.vertexMax_y+","+ rf.vertexMax_z+")");
 
 		      gl.glEnd();
 			  gl.glPopMatrix();	
@@ -315,7 +326,6 @@ public class RenderShap implements GLEventListener, ActionListener{
 				gl.glShadeModel(GL2.GL_FLAT);
 				}
 //look at
-				System.out.println(window.zoomChange+"------");
 				 gl.glMatrixMode(GL2.GL_PROJECTION);
 				 gl.glLoadIdentity();
 					glu.gluPerspective(50.0f,1,1.0,50.0);
@@ -355,12 +365,9 @@ public class RenderShap implements GLEventListener, ActionListener{
 			    { 0.4f, 0.4f, 0.4f, 1.0f };
 		  float local_view[] = { 0.0f };
 	    
-//////		gl.glShadeModel(GL2.GL_SMOOTH);
-//		gl.glShadeModel(GL2.GL_FLAT);
-//	    gl.glEnable(GL.GL_DEPTH_TEST);//????????
+
 		gl.glDepthFunc(GL2.GL_LEQUAL);
 
-//		gl.glHint(GL2.GL_ PECTIVE_CORRECTION_HINT,GL2.GL_NICEST);
 
 	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambient, 0);
 	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse, 0);
@@ -368,8 +375,28 @@ public class RenderShap implements GLEventListener, ActionListener{
 	    gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, lmodel_ambient, 0);
 	    gl.glLightModelfv(GL2.GL_LIGHT_MODEL_LOCAL_VIEWER, local_view, 0);
 
+//	    float ambient1[] =
+//		    { 0.1f, 0.0f, 0.0f, 1f };
+//		    float diffuse1[] =
+//		    { 1.0f, 1.0f, 1.0f, 1.0f };
+//		    float specular1[] =
+//		    { 1.0f, 1.0f, 1.0f, 1.0f };
+//		    float position1[] =
+//		    { -1.0f, 1.0f, 0.0f, 1.0f };
+//		    float lmodel_ambient1[] =
+//		    { 0.4f, 0.4f, 0.4f, 1.0f };
+//	  float local_view1[] = { 0.0f };
+//	  
+//
+//	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambient, 1);
+//	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse, 1);
+//	    gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, position, 1);
+//	    gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, lmodel_ambient, 1);
+//	    gl.glLightModelfv(GL2.GL_LIGHT_MODEL_LOCAL_VIEWER, local_view, 1);
+	    
 	    gl.glEnable(GL2.GL_LIGHTING);
 	    gl.glEnable(GL2.GL_LIGHT0);
+//	    gl.glEnable(GL2.GL_LIGHT1);
 
 
 	    gl.glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
@@ -415,11 +442,17 @@ public class RenderShap implements GLEventListener, ActionListener{
 	       window.Wireframe.addActionListener(rs);
 	       window.Flat.addActionListener(rs);
 	       window.Smooth.addActionListener(rs);
-		      rf.file_parser();
-		      System.out.println("111111111111111111111111111");
+	       window.Open.addActionListener(rs);
+
+	       	  openfile();
+		      rf.file_parser( fileName);
+		      System.out.println("fileName");
+
+		      window.lblNewLabel.setVisible(true);
 		      rf.vertexMaxMin();
 		      System.out.println("2222222222222222222222222222");
 		      rf.creatHalfEdge();
+		      window.lblNewLabel_1.setVisible(true);
 		      System.out.println("333333333333333333333333333331");
 
 
@@ -433,9 +466,42 @@ public class RenderShap implements GLEventListener, ActionListener{
 //			System.out.println("diagnal="+rf.diagnal);
 //			System.out.println("算完了的点数："+v+"平均法向量是("+rf.vertexNormal[v][0]+","+rf.vertexNormal[v][1]+","+rf.vertexNormal[v][2]+")");
 			}
+			window.lblFaceverticesNormalDone.setVisible(true);
+			window.lblHowToOperation.setVisible(true);
+			window.lblChooseTheM.setVisible(true);
+			window.Open.setVisible(true);
+			
 	      glcanvas.setSize(666,666);
 
 
+	}
+	static void openfile(){
+			try {
+	        	  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());  
+	              JFileChooser jdir = new JFileChooser();  
+	              jdir.setFileSelectionMode(JFileChooser.FILES_ONLY);  
+	              FileNameExtensionFilter filter = new FileNameExtensionFilter(    
+	                       "m file(*.m;)","m");   
+	              jdir.setFileFilter(filter);  
+	              jdir.setDialogTitle("Choose the data file");  
+	              if (JFileChooser.APPROVE_OPTION == jdir.showOpenDialog(null)) { 
+	            	  fileName = jdir.getSelectedFile().getAbsolutePath();  
+	              }  
+//	              System.out.println(fileName );  		
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InstantiationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalAccessException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (UnsupportedLookAndFeelException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+//			return fileName;  
 	}
 
 }

@@ -125,7 +125,6 @@ public class ReadFile  {
 			edgeArray[i+n] = new HE_edge() ;
 			edgeArray[i+n].startPoint =vertArray[i+n];
 			edgeArray[i+n].endPoint = endPoint2;
-//			orignVertex[startPoint2][endPoint2]=edgeArray[i+n];
 			edgeArray[i+n].incidentFace = faceArray[i];
 			vertArray[i+n].edge=edgeArray[i+n];
 
@@ -231,7 +230,7 @@ public class ReadFile  {
 	        		vertexNormal[v][1]+=faceNormal[f[3]][1];//第【】个点的x
 	        		vertexNormal[v][2]+=faceNormal[f[3]][2];//第【】个点的x
 
-	        		System.out.println(vertexNormal[y][0]);
+//	        		System.out.println(vertexNormal[y][0]);
 	        		num++;
 //	        		System.out.println("num====="+num);
 	        		//第f[3]个face的法向量的x
@@ -267,7 +266,7 @@ public class ReadFile  {
 		
 		if(vertex[m][1]<vertexMin_y){
 			vertexMin_y=vertex[m][1];
-		      System.out.println(m);
+//		      System.out.println(m);
 
 		}
 		if(vertex[m][2]>vertexMax_z){

@@ -11,6 +11,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
+import java.awt.Toolkit;
 
 public class MeshViewer implements MouseMotionListener,MouseListener{
 
@@ -85,6 +86,8 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 	 */
 	public void initialize(GLCanvas glcanvas) {
 		frmLiying = new JFrame();
+		frmLiying.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\\u5728NTU\\eclipse\\MeshViewer\\src\\LiYing.png"));
+		frmLiying.setTitle("LiYing_MeshViewer");
 		frmLiying.setBounds(100, 100, 450, 300);
 		frmLiying.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		glcanvas.setBounds(0,60,666,700);
@@ -115,57 +118,57 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 	    frmLiying.getContentPane().add(Box);
 	    
 	      lblProcess = new JLabel("------Process\r\n------");
-	    lblProcess.setBounds(696, 49, 109, 14);
+	    lblProcess.setBounds(706, 57, 109, 14);
 	    frmLiying.getContentPane().add(lblProcess);
 	    
 	      lblNewLabel = new JLabel("M-File Parser Done");
-	    lblNewLabel.setBounds(696, 101, 137, 14);
+	    lblNewLabel.setBounds(696, 101, 176, 14);
 	    lblNewLabel.setVisible(false);
 	    frmLiying.getContentPane().add(lblNewLabel);
 	    
 	      lblNewLabel_1 = new JLabel("Half-edge Data Structure Done");
-	    lblNewLabel_1.setBounds(696, 126, 149, 14);
+	    lblNewLabel_1.setBounds(696, 126, 176, 14);
 	    lblNewLabel_1.setVisible(false);
 
 	    frmLiying.getContentPane().add(lblNewLabel_1);
 	    
 	     lblFaceverticesNormalDone = new JLabel("Face&Vertices Normal Done");
-	    lblFaceverticesNormalDone.setBounds(696, 151, 149, 14);
+	    lblFaceverticesNormalDone.setBounds(696, 151, 176, 14);
 	    lblFaceverticesNormalDone.setVisible(false);
 
 	    frmLiying.getContentPane().add(lblFaceverticesNormalDone);
 	    
 	     lblNewLabel_2 = new JLabel("Enjoy the Model!");
-	    lblNewLabel_2.setBounds(696, 176, 85, 14);
+	    lblNewLabel_2.setBounds(696, 176, 176, 14);
 	    lblNewLabel_2.setVisible(false);
 	    frmLiying.getContentPane().add(lblNewLabel_2);
 	    
 	     lblHowToOperation = new JLabel("How to OPERATION");
-	    lblHowToOperation.setBounds(696, 218, 109, 14);
+	    lblHowToOperation.setBounds(706, 218, 109, 14);
 	    lblHowToOperation.setVisible(false);
 
 	    frmLiying.getContentPane().add(lblHowToOperation);
 	    
-	     lblChooseTheM = new JLabel("<html>\r\nLEFT mouse button for Rotation <br/>\r\nMIDDLE mouse button for Translation<br/>\r\nRIGHT mouse button for Zoom in/out<br/>\r\n     <br/>\r\nPlease click \"Open\" to see more details<br/>\r\n</html>");
-	    lblChooseTheM.setBounds(671, 252, 190, 105);
+	     lblChooseTheM = new JLabel("<html>\r\n<br/>\r\nLEFT mouse button for Rotation <br/>\r\nMIDDLE mouse button for Translation<br/>\r\nRIGHT mouse button for Zoom in/out<br/>\r\n     <br/>\r\nPlease click \"Open\" to see more details<br/>\r\n      <br/>\r\n</html>");
+	    lblChooseTheM.setBounds(678, 243, 205, 134);
 	    lblChooseTheM.setVisible(false);
 
 	    frmLiying.getContentPane().add(lblChooseTheM);
 	    
 	    Open = new JButton("Open");
-	    Open.setBounds(704, 397, 89, 23);
+	    Open.setBounds(716, 388, 89, 23);
 	    Open.setVisible(false);
 
 	    frmLiying.getContentPane().add(Open);
 	    
-		frmLiying.setSize(888,700);
+		frmLiying.setSize(906,700);
 		frmLiying.setVisible(true);
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(e.getModifiers());
+//		System.out.println(e.getModifiers());
 		if(e.getModifiers()==16){//left
 		
 		double rotateX_c = e.getX();

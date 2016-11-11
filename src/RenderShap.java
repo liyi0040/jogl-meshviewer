@@ -1,17 +1,17 @@
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import com.jogamp.newt.event.MouseListener;
-import com.jogamp.opengl.GL;
+
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLCapabilities;
@@ -46,7 +46,13 @@ public class RenderShap implements GLEventListener, ActionListener{
 		// TODO Auto-generated method stub
 //		
 		if (e.getActionCommand()=="Open") {
-			
+			File readMe = new File("readMe.txt");
+			try {
+				Desktop.getDesktop().open(readMe);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 
@@ -450,10 +456,10 @@ public class RenderShap implements GLEventListener, ActionListener{
 
 		      window.lblNewLabel.setVisible(true);
 		      rf.vertexMaxMin();
-		      System.out.println("2222222222222222222222222222");
+		      System.out.println("finish reading file");
 		      rf.creatHalfEdge();
 		      window.lblNewLabel_1.setVisible(true);
-		      System.out.println("333333333333333333333333333331");
+		      System.out.println("finish storing as Half Edge");
 
 
 			for(int v = 1;v<=rf.vertex_num;v++){
@@ -464,9 +470,11 @@ public class RenderShap implements GLEventListener, ActionListener{
 			rf.vertexNormal[v][1]=rf.vertexNormal[v][1]/(rf.num);
 			rf.vertexNormal[v][2]=rf.vertexNormal[v][2]/(rf.num);
 //			System.out.println("diagnal="+rf.diagnal);
-//			System.out.println("算完了的点数："+v+"平均法向量是("+rf.vertexNormal[v][0]+","+rf.vertexNormal[v][1]+","+rf.vertexNormal[v][2]+")");
+			System.out.println("point"+v+": vertexNormal is ("+rf.vertexNormal[v][0]+","+rf.vertexNormal[v][1]+","+rf.vertexNormal[v][2]+")");
 			}
+			System.out.println("finish all calculation");
 			window.lblFaceverticesNormalDone.setVisible(true);
+			window.lblNewLabel_2.setVisible(true);
 			window.lblHowToOperation.setVisible(true);
 			window.lblChooseTheM.setVisible(true);
 			window.Open.setVisible(true);

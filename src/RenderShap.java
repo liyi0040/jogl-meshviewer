@@ -28,6 +28,8 @@ public class RenderShap implements GLEventListener, ActionListener{
 	 static RenderShap rs = new RenderShap();
      static MeshViewer window = new MeshViewer();
      static ReadFile rf = new ReadFile();
+     static Help help = new Help();
+
  	private GLU glu  = new GLU();
  	static double rotationX = 0;
  	static double rotationY = 0;
@@ -46,13 +48,7 @@ public class RenderShap implements GLEventListener, ActionListener{
 		// TODO Auto-generated method stub
 //		
 		if (e.getActionCommand()=="Open") {
-			File readMe = new File("readMe.txt");
-			try {
-				Desktop.getDesktop().open(readMe);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			help.show(true);
 		}
 	}
 

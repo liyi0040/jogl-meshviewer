@@ -86,7 +86,7 @@ public class MeshViewer implements MouseMotionListener,MouseListener{
 	 */
 	public void initialize(GLCanvas glcanvas) {
 		frmLiying = new JFrame();
-		frmLiying.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\\u5728NTU\\eclipse\\MeshViewer\\src\\LiYing.png"));
+		frmLiying.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\\u5728NTU\\eclipse\\MeshViewer\\LiYing.png"));
 		frmLiying.setTitle("LiYing_MeshViewer");
 		frmLiying.setBounds(100, 100, 450, 300);
 		frmLiying.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
